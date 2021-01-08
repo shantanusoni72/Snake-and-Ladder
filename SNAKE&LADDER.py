@@ -1,4 +1,14 @@
 import random 
+import pyfiglet
+from termcolor import colored
+def banner():
+	print(pyfiglet.figlet_format("SnakeLadder"))
+	print(
+	'''
+	-----------------------------------Code by shaan453
+	-----------------------------------Version 2021.2.3
+	'''
+	)
 def game():
 	print("The game have been started. \nYou are currently on position one.")
 	throwOption = input("Instruction: Type 'D' to roll the die or 'E' to exit")
@@ -22,20 +32,25 @@ def Play():
 			lastPosition = currentPosition
 			currentPosition = SnakeList[currentPosition]
 			recordList.append(lastPosition)
-			print("Oops! You got Snake and you are now on ",currentPosition," from ",recordList[-1])
+			status = "Oops! You got Snake and you are now on "+str(currentPosition)+" from "+str(recordList[-1])
+			print(colored(status,"red"))
 		if (currentPosition in LadderList):
 			lastPosition = currentPosition
 			currentPosition = LadderList[currentPosition]
 			recordList.append(lastPosition)
-			print("Good luck, you got ladder and you are now on ",currentPosition," from ",recordList[-1])
+			status = "Good luck, you got ladder and you are now on "+str(currentPosition)+" from "+str(recordList[-1])
+			print(colored(status,"green"))
 		lastPosition = currentPosition
 		recordList.append(lastPosition)
 		print("You are currently on ",currentPosition)
-	print("Congratulation! You won the Snake and Ladder game.")
+	status = "Congratulation! You won the Snake and Ladder game."
+	print(colored(status,"green"))
 
-print("------SNAKE AND LADDER------")
+banner()
+print("-------------------------Main-Menu-------------------------")
 print("1. Start the game")
 print("2. Exit the game")
+print("-----------------------------------")
 choice = int(input("Enter your choice"))
 if (choice == 1):
 	game()
