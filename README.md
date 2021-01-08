@@ -1,4 +1,4 @@
-# SnakeAndLadders
+# Snake-and-Ladder
 Python-based Snake and ladders game.
 
 # Current version
